@@ -51,6 +51,7 @@ public class MenuDatabase {
             // a different random image on every call
             logger.info("Getting random image url for: {}", categoryUrl);
             URLConnection connection = categoryUrl.openConnection();
+            connection.addRequestProperty("User-Agent", "Chrome"); //LoremPixel will now deny requests without an agent
             connection.connect();
             InputStream inputStream = connection.getInputStream();
             URL randomImageUrl = connection.getURL();
